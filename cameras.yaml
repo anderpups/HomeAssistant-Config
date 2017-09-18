@@ -1,0 +1,12 @@
+##### WEATHER #####
+- platform: generic
+  still_image_url: https://radar.weather.gov/Conus/Loop/northeast_loop.gif
+  name: "Northeast Radar"
+- platform: generic
+  still_image_url: https://radar.weather.gov/Conus/Loop/NatLoop.gif
+  name: "U.S. Radar"
+- platform: generic
+  still_image_url: https://radar.weather.gov/ridge/lite/NCR/DOX_loop.gif
+  name: "Delaware Radar"
+#### CAMERA ####
+

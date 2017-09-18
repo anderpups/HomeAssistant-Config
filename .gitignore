@@ -1,0 +1,11 @@
+known_devices.yaml
+secrets.yaml
+deps
+tts
+.uuid
+home-assistant.log
+home-assistant_v2.db
+nest.conf
+upsmychoice_cookies.pickle
+usps_cookies.pickle
+fedexdeliverymanager_cookies.pickle

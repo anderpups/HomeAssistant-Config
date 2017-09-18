@@ -1,0 +1,17 @@
+- id: stereo_power_on
+  alias: 'Stereo Power On'
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: media_player.stereo
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.home_group
+      to: 'playing'
+  condition:
+    condition: state
+    entity_id: switch.stereo_power
+    state: 'off'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.stereo_power

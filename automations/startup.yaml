@@ -1,0 +1,11 @@
+- id: startup
+  alias: 'Startup'
+  hide_entity: true
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: automation.trigger
+      entity_id: automation.media_update_active_group
+    - service: automation.trigger
+      entity_id: automation.weather_alert

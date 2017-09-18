@@ -1,0 +1,29 @@
+- id: stereo_power_off
+  alias: 'Stereo Power Off'
+  hide_entity: true
+  trigger:
+    - platform: template
+      value_template: "{{ states.media_player.stereo.state != 'playing' }}"
+    - platform: template
+      value_template: "{{ states.media_player.home_group.state != 'playing' }}"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.stereo_power
+        state: 'on'
+      - condition: template
+        value_template: "{{ (as_timestamp(states.automation.stereo_power_off.last_changed) | int) > 60 }}"
+  action:
+    - delay: 00:01:00
+    - condition: template
+      value_template: "{{ states(trigger.entity_id) != 'playing' }}"
+    - condition: template
+      value_template: >
+        {% if trigger.entity_id == 'media_player.stereo' %}
+          {{ ((as_timestamp(now())- as_timestamp(states.media_player.stereo.last_changed)) | int ) >= 60 }}
+            {% elif trigger.entity_id == 'media_player.home_group' %}
+          {{ (as_timestamp(now())- (as_timestamp(states.media_player.home_group.last_changed))| int ) >= 60 }}
+        {% endif %}
+    - service: homeassistant.turn_off
+      entity_id: switch.stereo_power

@@ -1,0 +1,141 @@
+####Weather WUnderground##########
+sensor.pws_feelslike_f:
+ friendly_name: "Feels Like"
+sensor.pws_feelslike_string:
+ hidden: true
+sensor.pws_precip_today_in:
+ friendly_name: "Precip Today"
+ icon: mdi:weather-rainy
+sensor.pws_temp_f:
+ friendly_name: "Temp"
+sensor.pws_weather:
+ friendly_name: "Weather"
+sensor.pws_alerts:
+ friendly_name: "Alerts"
+ icon: mdi:alert-circle
+sensor.pws_wind_dir:
+ friendly_name: "Wind Direction"
+ icon: mdi:compass
+sensor.pws_relative_humidity:
+ friendly_name: "Relative Humidity"
+ icon: mdi:weather-fog
+
+####Weather DarkSky##########
+sensor.dark_sky_daily_high_apparent_temperature:
+  friendly_name: "Feels Like High"
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: "High"
+sensor.dark_sky_daily_low_apparent_temperature:
+  friendly_name: "Feels Like Low"
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: "Low"
+sensor.dark_sky_nearest_storm_bearing:
+  friendly_name: "Storm Direction"
+sensor.dark_sky_nearest_storm_distance:
+  friendly_name: "Storm Distance"
+sensor.dark_sky_precip_probability:
+  friendly_name: "Chance of Rain"
+sensor.dark_sky_cloud_coverage:
+  friendly_name: "Cloud Coverage"
+sensor.dark_sky_wind_speed:
+  friendly_name: "Wind Speed"
+sensor.dark_sky_minutely_summary:
+  friendly_name: "Next Hour"
+sensor.dark_sky_hourly_summary:
+  friendly_name: "Next 24 Hours"
+sensor.dark_sky_daily_summary:
+  friendly_name: "Next 7 Days"
+
+sensor.us_air_pollution_level:
+  friendly_name: "Air Rating"
+sensor.us_air_quality_index:
+  friendley_name: "Air Quality Index"
+sensor.us_main_pollutant:
+  friendly_name: "Main Pollutant"
+
+#########Nest##########
+binary_sensor.basement_nest_protect_online:
+ friendly_name: "Basement Smoke Detector Online"
+sensor.basement_nest_protect_smoke_status:
+ friendly_name: "Basement Smoke Status"
+ icon: mdi:fire
+sensor.basement_nest_protect_co_status:
+ friendly_name: "Basement CO2 Status"
+ icon: mdi:fire
+sensor.basement_nest_protect_battery_health:
+ friendly_name: "Basement Smoke Detector Online"
+ icon: mdi:fire
+
+####Speed Tests#######
+sensor.speedtest_download:
+ icon: mdi:download
+sensor.speedtest_upload:
+ icon: mdi:upload
+sensor.fastcom_download:
+ icon: mdi:download
+
+###Commute###
+sensor.time_to_dti:
+  icon: mdi:car
+sensor.time_to_ai_dupont:
+  icon: mdi:car
+
+######Mail########
+sensor.usps_mail:
+  friendly_name: "Mailbox"
+  entity_picture: "http://home.stonerson.com/pics/usps.png"
+camera.usps_mail:
+  friendly_name: "Mailbox "
+
+######Packages######
+sensor.ups_delivered:
+  friendly_name: "UPS"
+  entity_picture: "http://home.stonerson.com/pics/ups.png"
+sensor.fedex:
+  friendly_name: "FedEx"
+  entity_picture: "http://home.stonerson.com/pics/fedex.png"
+sensor.usps_delivered:
+  friendly_name: "USPS"
+  entity_picture: "http://home.stonerson.com/pics/usps.png"
+
+#####Pi-Hole#####
+sensor.pihole_ads_blocked_today:
+  friendly_name: "Ads Blocked Today"
+sensor.pihole_ads_percentage_blocked_today:
+  friendly_name: "% of Ads Blocked Today"
+sensor.pihole_dns_queries_cached:
+  friendly_name: "DNS Queries Cached:"
+sensor.pihole_dns_queries_forwarded:
+  friendly_name: " DNS Queries Forwarded"
+sensor.pihole_dns_queries_today:
+  friendly_name: "DNS Queries Today"
+sensor.pihole_dns_unique_clients:
+  friendly_name: "Unique Clients"
+sensor.pihole_dns_unique_domains:
+  friendly_name: "Unique Domains"
+sensor.pihole_domains_blocked:
+  friendly_name: "Domains Blocked"
+
+##########Groups###############
+group.current_conditions:
+  friendly_name: "Current Conditions"
+group.speed_tests:
+  friendly_name: "Speed Tests"
+group.nest:
+  friendly_name: "Smoke Detectors"
+group.home_group:
+  friendly_name: "Home Group"
+group.stereo_portable:
+  friendly_name: "Stereo Portable"
+group.rasp_pi:
+  friendly_name: "Raspberry Pi"
+group.quick_weather:
+  friendly_name: "Weather"
+group.air_quality:
+  friendly_name: "Air Quality"
+group.packages:
+  friendly_name: "Packages"
+group.mail:
+  friendly_name: " "
+group.pihole:
+  friendly_name: "Pi-Hole Ad Block"

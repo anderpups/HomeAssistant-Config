@@ -1,0 +1,141 @@
+#### Weather #############
+- platform: darksky
+  api_key: !secret darksky_api_key
+  update_interval: "00:05:00"
+  monitored_conditions:
+    - summary
+    - nearest_storm_distance
+    - nearest_storm_bearing
+    - precip_probability
+    - wind_speed
+    - cloud_cover
+    - temperature_max
+    - temperature_min
+    - apparent_temperature_max
+    - apparent_temperature_min
+    - daily_summary
+    - hourly_summary
+    - minutely_summary
+
+- platform: wunderground
+  api_key: !secret wunderground_api_key
+  monitored_conditions:
+    - alerts
+    - feelslike_f
+    - weather
+    - wind_dir
+    - wind_mph
+    - relative_humidity
+    - precip_today_in
+    - temp_f
+
+- platform: moon
+
+- platform: season
+
+- platform: airvisual
+  api_key: !secret airvisual_api_key
+  monitored_conditions:
+    - us
+
+########Travel Time#######################
+
+- platform: google_travel_time
+  api_key: !secret google_drive_time_api_key
+  origin: !secret home_address
+  destination: !secret brad_work_address
+  name: !secret brad_work_name
+
+- platform: google_travel_time
+  api_key: !secret google_drive_time_api_key
+  origin: !secret home_address
+  destination: !secret nat_work_address
+  name: !secret nat_work_name
+
+#####SPEED TESTS#############
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+- platform: fastdotcom
+#############################
+
+#####SYS MON##########
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_use_percent
+    - type: swap_use_percent
+    - type: processor_use
+    - type: since_last_boot
+    - type: load_15m
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+
+- platform: command_line
+  name: CPU Temp
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) }}'
+
+- platform: cpuspeed
+
+#############################
+
+#### Mail ##############
+- platform: ups
+  username: !secret ups_username
+  password: !secret ups_password
+- platform: fedex
+  username: !secret fedex_username
+  password: !secret fedex_password
+- platform: template
+  sensors:
+    ups_delivered:
+      friendly_name: 'UPS'
+      value_template: >
+                     {% if states.sensor.ups.attributes.delivered is not defined %}
+                        0
+                     {% else %}
+                       {{ states.sensor.ups.attributes.delivered }}
+                     {% endif %}
+- platform: template
+  sensors:
+    usps_delivered:
+      friendly_name: 'USPS'
+      value_template: >
+                     {% if states.sensor.usps_packages.attributes.out_for_delivery is not defined %}
+                        0
+                     {% else %}
+                       {{ states.sensor.usps_packages.attributes.out_for_delivery }}
+                     {% endif %}
+#########################
+- platform: version
+
+- platform: pi_hole
+  host: !secret pihole_host
+  ssl: true
+
+- platform: cert_expiry
+  host: !secret hass_url  
+  name: hass_cert_expire
+
+- platform: cert_expiry
+  host: !secret pihole_host
+  name: pihole_cert_expire
+
+- platform: template
+  sensors:
+    media_players_active:
+      friendly_name: 'Active Media Players'
+      value_template: >
+        {{ states.media_player
+         | rejectattr('state', 'equalto', 'off')
+         | rejectattr('state', 'equalto', 'idle')
+         | map(attribute ='entity_id')
+         | join(', ')
+        }}

@@ -1,0 +1,268 @@
+onealert_script:
+  sequence:
+    - service: script.dismiss_script
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "weatheralert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description }}'
+
+allalerts_script:
+  sequence:
+    - service: script.dismiss_script
+    - service: script.wat_script
+    - service: script.hur_script
+    - service: script.win_script
+    - service: script.tor_script
+    - service: script.tow_script
+    - service: script.wrn_script
+    - service: script.sew_script
+    - service: script.flo_script
+    - service: script.wnd_script
+    - service: script.svr_script
+    - service: script.hea_script
+    - service: script.fog_script
+    - service: script.spe_script
+    - service: script.fir_script
+    - service: script.hww_script
+    - service: script.vol_script
+    - service: script.rec_script
+    - service: script.rep_script
+    - service: script.pub_script
+
+dismiss_script:
+  sequence:
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "weatheralert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "watalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "huralert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "winalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "toralert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "towalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "wrnalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "sewalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "floalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "wndalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "svralert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "heaalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "fogalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "spealert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "firalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "hwwalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "volalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "recalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "repalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "pubalert"
+ 
+wat_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_WAT is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "watalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_WAT }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_WAT }}'
+hur_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_HUR is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "huralert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_HUR }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_HUR }}'
+win_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_WIN is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "winalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_WIN }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_WIN }}'
+tor_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_TOR is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "toralert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_TOR }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_TOR }}'
+tow_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_TOW is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "towalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_TOW }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_TOW }}'
+wrn_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_WRN is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "wrnalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_WRN }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_WRN }}'
+sew_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_SEW is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "sewalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_SEW }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_SEW }}'
+flo_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_FLO is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "floalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_FLO }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_FLO }}'
+wnd_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_WND is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "wndalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_WND }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_WND }}'
+svr_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_SVR is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "svralert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_SVR }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_SVR }}'
+hea_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_HEA is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "heaalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_HEA }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_HEA }}'
+fog_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_FOG is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "fogalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_FOG }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_FOG }}'
+spe_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_SPE is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "spealert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_SPE }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_SPE }}'
+fir_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_FIR is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "firalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_FIR }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_FIR }}'
+vol_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_VOL is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "volalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_VOL }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_VOL }}'
+hww_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_HWW is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "hwwalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_HWW }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_HWW }}'
+rec_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_REC is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "recalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_REC }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_REC }}'
+rep_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_REP is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "repalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_REP }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_REP }}'
+pub_script:
+  sequence:
+    - condition: template
+      value_template: '{{ states.sensor.pws_alerts.attributes.Message_PUB is defined }}'
+    - service: persistent_notification.create
+      data_template:
+        notification_id: "pubalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_PUB }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_PUB }}'
