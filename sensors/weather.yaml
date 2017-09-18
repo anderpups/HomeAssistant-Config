@@ -1,0 +1,38 @@
+- platform: darksky
+  api_key: !secret darksky_api_key
+  update_interval: "00:05:00"
+  monitored_conditions:
+    - summary
+    - nearest_storm_distance
+    - nearest_storm_bearing
+    - precip_probability
+    - wind_speed
+    - cloud_cover
+    - temperature_max
+    - temperature_min
+    - apparent_temperature_max
+    - apparent_temperature_min
+    - daily_summary
+    - hourly_summary
+    - minutely_summary
+
+- platform: wunderground
+  api_key: !secret wunderground_api_key
+  monitored_conditions:
+    - alerts
+    - feelslike_f
+    - weather
+    - wind_dir
+    - wind_mph
+    - relative_humidity
+    - precip_today_in
+    - temp_f
+
+- platform: moon
+
+- platform: season
+
+- platform: airvisual
+  api_key: !secret airvisual_api_key
+  monitored_conditions:
+    - us

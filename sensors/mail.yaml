@@ -1,0 +1,26 @@
+- platform: ups
+  username: !secret ups_username
+  password: !secret ups_password
+- platform: fedex
+  username: !secret fedex_username
+  password: !secret fedex_password
+- platform: template
+  sensors:
+    ups_delivered:
+      friendly_name: 'UPS'
+      value_template: >
+                     {% if states.sensor.ups.attributes.delivered is not defined %}
+                        0
+                     {% else %}
+                       {{ states.sensor.ups.attributes.delivered }}
+                     {% endif %}
+- platform: template
+  sensors:
+    usps_delivered:
+      friendly_name: 'USPS'
+      value_template: >
+                     {% if states.sensor.usps_packages.attributes.delivered is not defined %}
+                        0
+                     {% else %}
+                       {{ states.sensor.usps_packages.attributes.delivered }}
+                     {% endif %}
