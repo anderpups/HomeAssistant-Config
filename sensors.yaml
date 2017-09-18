@@ -108,10 +108,10 @@
     usps_delivered:
       friendly_name: 'USPS'
       value_template: >
-                     {% if states.sensor.usps_packages.attributes.out_for_delivery is not defined %}
+                     {% if states.sensor.usps_packages.attributes.delivered is not defined %}
                         0
                      {% else %}
-                       {{ states.sensor.usps_packages.attributes.out_for_delivery }}
+                       {{ states.sensor.usps_packages.attributes.delivered }}
                      {% endif %}
 #########################
 - platform: version
