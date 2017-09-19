@@ -10,4 +10,14 @@
   destination: !secret nat_work_address
   name: !secret nat_work_name
 
+- platform: google_travel_time
+  api_key: !secret google_drive_time_api_key
+  origin: !secret brad_work_address
+  destination: !secret home_address
+  name: time_to_home_brad
 
+- platform: google_travel_time
+  api_key: !secret google_drive_time_api_key
+  origin: !secret nat_work_address
+  destination: !secret home_address
+  name: time_to_home_nat

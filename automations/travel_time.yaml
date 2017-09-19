@@ -1,39 +1,19 @@
-- id: certificate_expire_notification
-  alias: 'Certificate Expiration Notification'
+- id: travel_time
+  alias: 'Travel Time Warning'
   trigger:
     - platform: numeric_state
-      entity_id: sensor.hass_cert_expire
-      below: 8
-      for:
-        hours: 10
-    - platform: numeric_state
-      entity_id: sensor.pihole_cert_expire
-      below: 8
-      for:
-        hours: 10
+      entity_id: sensor.time_to_dti
+      above: 60
   action:
     - service: persistent_notification.create
       data_template:
-        notification_id: 'cert_expire'
-        title: 'Certificate Expiration Notice'
+        notification_id: 'travel_time'
+        title: 'Travel Time Warning'
         message: > 
-           {% if trigger.entity_id == 'sensor.hass_cert_expire' %}
-            The certificate for Home Assistant will expire in {{ trigger.to_state.state }} days
-           {% elif trigger.entity_id == 'sensor.pihole_cert_expire' %}
-             The certificate for PiHole will expire in {{ trigger.to_state.state }} days
-           {% else %}
-             Something ain't right!
-           {% endif %}
+             Warning, it is going to take {{ trigger.to_state.state }} minutes to get to DTI
 
     - service: notify.brad_pb
       data_template:
-        title: 'Certificate Expiration Notice'
+        title: 'Travel Time Warning'
         message: >
-           {% if trigger.entity_id == 'sensor.hass_cert_expire' %}
-            The certificate for Home Assistant will expire in {{ trigger.to_state.state }} days
-           {% elif trigger.entity_id == 'sensor.pihole_cert_expire' %}
-             The certificate for PiHole will expire in {{ trigger.to_state.state }} days
-           {% else %}
-             Something ain't right!
-           {% endif %}
-
+             Warning, it is going to take {{ trigger.to_state.state }} minutes to get to DTI

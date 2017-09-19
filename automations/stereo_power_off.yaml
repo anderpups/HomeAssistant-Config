@@ -15,7 +15,7 @@
       - condition: template
         value_template: "{{ (as_timestamp(states.automation.stereo_power_off.last_changed) | int) > 60 }}"
   action:
-    - delay: 00:01:00
+    - delay: 00:05:00
     - condition: template
       value_template: "{{ states(trigger.entity_id) != 'playing' }}"
     - condition: template

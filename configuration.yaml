@@ -72,9 +72,6 @@ logbook:
 
 logger:
   default: warn
-  logs:
-    homeassistant.components.tts: debug
-    homeassistant.components.media_player.stereo: debug
 
 # Track the sun
 sun:
@@ -114,4 +111,3 @@ camera: !include cameras.yaml
 notify: !include notifiers.yaml
 
 media_player: !include media_players.yaml
-

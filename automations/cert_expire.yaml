@@ -2,12 +2,12 @@
   alias: 'Certificate Expiration Notification'
   trigger:
     - platform: numeric_state
-      entity_id: sensor.hass_cert_expire
+      entity_id: sensor.cert_expire_hass
       below: 8
       for:
         hours: 10
     - platform: numeric_state
-      entity_id: sensor.pihole_cert_expire
+      entity_id: sensor.cert_expire_pihole
       below: 8
       for:
         hours: 10
@@ -17,9 +17,9 @@
         notification_id: 'cert_expire'
         title: 'Certificate Expiration Notice'
         message: > 
-           {% if trigger.entity_id == 'sensor.hass_cert_expire' %}
+           {% if trigger.entity_id == 'sensor.cert_expire_hass' %}
             The certificate for Home Assistant will expire in {{ trigger.to_state.state }} days
-           {% elif trigger.entity_id == 'sensor.pihole_cert_expire' %}
+           {% elif trigger.entity_id == 'sensor.cert_expire_pihole' %}
              The certificate for PiHole will expire in {{ trigger.to_state.state }} days
            {% else %}
              Something ain't right!
@@ -29,9 +29,9 @@
       data_template:
         title: 'Certificate Expiration Notice'
         message: >
-           {% if trigger.entity_id == 'sensor.hass_cert_expire' %}
+           {% if trigger.entity_id == 'sensor.cert_expire_hass' %}
             The certificate for Home Assistant will expire in {{ trigger.to_state.state }} days
-           {% elif trigger.entity_id == 'sensor.pihole_cert_expire' %}
+           {% elif trigger.entity_id == 'sensor.cert_expire_pihole' %}
              The certificate for PiHole will expire in {{ trigger.to_state.state }} days
            {% else %}
              Something ain't right!

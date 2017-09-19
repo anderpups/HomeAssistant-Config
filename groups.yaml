@@ -4,7 +4,6 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
-    - persistent_notification.update
     - group.people
     - group.commute
     - group.quick_weather
@@ -89,4 +88,4 @@ Radar: camera.us_radar, camera.northeast_radar, camera.delaware_radar
 
 Forecast: sensor.dark_sky_minutely_summary, sensor.dark_sky_hourly_summary, sensor.dark_sky_daily_summary
 
-air_quality: sensor.us_air_pollution_level, sensor.us_air_quality_index, sensor.us_main_pollutant
+air_quality: sensor.us_air_pollution_level, sensor.us_air_quality_index, sensor.us_main_pollutant, sensor.pollen_level

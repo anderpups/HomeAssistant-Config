@@ -37,9 +37,9 @@
 
 - platform: cert_expiry
   host: !secret hass_url
-  name: hass_cert_expire
+  name: cert_expire_hass
 
 - platform: cert_expiry
   host: !secret pihole_host
-  name: pihole_cert_expire
+  name: cert_expire_pihole
 

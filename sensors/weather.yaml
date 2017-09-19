@@ -36,3 +36,30 @@
   api_key: !secret airvisual_api_key
   monitored_conditions:
     - us
+
+- platform: rest
+  name: pollen
+  resource: https://www.pollen.com/api/forecast/current/pollen/60640
+  value_template: "{{value_json.Location.periods[1].Index}}"
+  scan_interval: 21600
+  headers:
+    Referer: "https://www.pollen.com"
+
+- platform: template
+  sensors:
+    pollen_level:
+      friendly_name: 'Pollen Level'
+      value_template: >-
+        {%- if states.sensor.pollen.state|float <= 2.4 %}
+            Low
+        {%- elif states.sensor.pollen.state|float <= 4.8 %}
+            Medium-Low
+        {%- elif states.sensor.pollen.state|float <= 7.2 %}
+            Medium
+        {%- elif states.sensor.pollen.state|float <= 9.6 %}
+            Medium-High
+        {%- elif states.sensor.pollen.state|float <= 12.0 %}
+            High
+        {% else %}
+            Unknown
+        {%- endif %}

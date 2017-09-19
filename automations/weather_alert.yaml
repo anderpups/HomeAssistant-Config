@@ -11,3 +11,20 @@
       {% else %}
         script.allalerts_script
       {% endif %}
+
+#- id: weather_alert
+#  alias: 'Weather Alert'
+#  hide_entity: true
+#  trigger:
+#    platform: state
+#    entity_id: sensor.pws_alerts
+#  action:
+#    service_template: >
+#      {% for att in states.sensor.pws_alerts.attributes if att.startswith('Description') -%}
+#        {% set message =  att | replace('Description','Message')  %}
+#        persistent_notification.create
+#        data:
+#          message: '{{states.sensor.pws_alerts.attributes[message]}}'
+#          title: '{{states.sensor.pws_alerts.attributes[att]}}'
+#      {% endfor %}
+

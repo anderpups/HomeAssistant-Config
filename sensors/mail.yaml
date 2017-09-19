@@ -9,10 +9,12 @@
     ups_delivered:
       friendly_name: 'UPS'
       value_template: >
-                     {% if states.sensor.ups.attributes.delivered is not defined %}
-                        0
-                     {% else %}
+                     {% if states.sensor.ups.attributes.out_for_delivery is defined %}
+                       {{ states.sensor.ups.attributes.out_for_delivery }}
+                     {% elif states.sensor.ups.attributes.delivered is defined %}
                        {{ states.sensor.ups.attributes.delivered }}
+                     {% else %}
+                        0
                      {% endif %}
 - platform: template
   sensors:
