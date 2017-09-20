@@ -111,3 +111,5 @@ camera: !include cameras.yaml
 notify: !include notifiers.yaml
 
 media_player: !include media_players.yaml
+
+panel_iframe: !include iframe_panels.yaml

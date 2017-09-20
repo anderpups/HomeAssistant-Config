@@ -1,0 +1,224 @@
+weather_alert_notify:
+  sequence:
+####DISMISS ALL SO THERE AREN"T MULTIPLES####
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "weatheralert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "watalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "huralert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "winalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "toralert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "towalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "wrnalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "sewalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "floalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "wndalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "svralert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "heaalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "fogalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "spealert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "firalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "hwwalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "volalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "recalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "repalert"
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: "pubalert"
+#################################################
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "weatheralert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_WAT %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "watalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_WAT }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_WAT }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_HUR %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "huralert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_HUR }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_HUR }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_WIN %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "winalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_WIN }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_WIN }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_TOR %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "toralert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_TOR }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_TOR }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_TOW %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "towalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_TOW }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_TOW }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_WRN %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "wrnalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_WRN }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_WRN }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_SEW %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "sewalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_SEW }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_SEW }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_FLO %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "floalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_FLO }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_FLO }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_WND %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "wndalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_WND }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_WND }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_SVR %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "svralert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_SVR }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_SVR }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_HEA %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "heaalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_HEA }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_HEA }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_FOG %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "fogalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_FOG }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_FOG }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_SPE %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "spealert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_SPE }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_SPE }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_FIR %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "firalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_FIR }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_FIR }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_VOL %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "volalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_VOL }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_VOL }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_HWW %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "hwwalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_HWW }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_HWW }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_REC %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "recalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_REC }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_REC }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_REP %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "repalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_REP }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_REP }}'
+    - service_template: >
+        {% if states.sensor.pws_alerts.attributes.Message_PUB %}
+        persistent_notification.create
+        {% endif %}
+      data_template:
+        notification_id: "pubalert"
+        message: '{{ states.sensor.pws_alerts.attributes.Message_PUB }}'
+        title: '{{ states.sensor.pws_alerts.attributes.Description_PUB }}'

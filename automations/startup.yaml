@@ -8,4 +8,4 @@
     - service: automation.trigger
       entity_id: automation.media_update_active_group
     - service: automation.trigger
-      entity_id: automation.weather_alert
+      entity_id: automation.weather_alert_notify

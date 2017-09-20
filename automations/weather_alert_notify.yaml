@@ -1,16 +1,11 @@
-- id: weather_alert
-  alias: 'Weather Alert'
+- id: weather_alert_notify
+  alias: 'Weather Alert Notify'
   hide_entity: true
   trigger:
     platform: state
     entity_id: sensor.pws_alerts
   action:
-    service_template: >
-      {% if states.sensor.pws_alerts.state | float < 2 %}
-        script.onealert_script
-      {% else %}
-        script.allalerts_script
-      {% endif %}
+    service: script.weather_alert_notify
 
 #- id: weather_alert
 #  alias: 'Weather Alert'
