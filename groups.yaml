@@ -66,7 +66,7 @@ speed_tests: sensor.fastcom_download, sensor.speedtest_download,sensor.speedtest
 
 Nest: binary_sensor.basement_nest_protect_online, sensor.basement_nest_protect_smoke_status, sensor.basement_nest_protect_co_status, sensor.basement_nest_protect_battery_health
 
-rasp_pi: sensor.cpu_temp, sensor.cpu_use, sensor.ram_use, sensor.swap_use, sensor.disk_use_, sensor.average_load_15m, sensor.received_eth0, sensor.sent_eth0, sensor.since_last_boot
+rasp_pi: sensor.cpu_temp, sensor.cpu_use, sensor.ram_use, sensor.swap_use, sensor.disk_use_, sensor.average_load_15m, sensor.received_eth0, sensor.sent_eth0, sensor.hass_uptime, sensor.rpi_uptime
 
 mail: sensor.usps_mail, camera.usps_mail
 

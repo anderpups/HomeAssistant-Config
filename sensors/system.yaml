@@ -14,7 +14,6 @@
     - type: memory_use_percent
     - type: swap_use_percent
     - type: processor_use
-    - type: since_last_boot
     - type: load_15m
     - type: network_in
       arg: eth0
@@ -22,10 +21,18 @@
       arg: eth0
 
 - platform: command_line
-  name: CPU Temp
+  name: RPI CPU Temp
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) }}'
+
+- platform: command_line
+  name: RPI Uptime
+  command: "uptime -p | sed 's/^..//g'"
+
+- platform: command_line
+  name: HASS Uptime
+  command: /home/homeassistant/.homeassistant/scripts/hass_uptime.sh
 
 - platform: cpuspeed
 

@@ -116,6 +116,14 @@ sensor.pihole_dns_unique_domains:
 sensor.pihole_domains_blocked:
   friendly_name: "Domains Blocked"
 
+##### System Monitor#########
+sensor.rpi_uptime:
+  friendly_name: "Raspberry Pi Uptime"
+  icon: mdi:timelapse
+sensor.hass_uptime:
+  friendly_name: "Home Assistant Uptime"
+  icon: mdi:timelapse
+
 ##########Groups###############
 group.current_conditions:
   friendly_name: "Current Conditions"
@@ -139,3 +147,5 @@ group.mail:
   friendly_name: " "
 group.pihole:
   friendly_name: "Pi-Hole Ad Block"
+
+
