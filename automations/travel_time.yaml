@@ -13,17 +13,12 @@
       - tue
       - thu
   action:
-    - service: persistent_notification.create
-      data_template:
-        notification_id: 'travel_time'
-        title: 'Travel Time Warning'
-        message: > 
-             Warning, it is going to take {{ trigger.to_state.state }} minutes to get to DTI
     - service: notify.brad_pb
       data_template:
         title: 'Travel Time Warning'
         message: >
              Warning, it is going to take {{ trigger.to_state.state }} minutes to get to DTI
+
 - id: from_dti_warning
   alias: 'From DTI Travel Time Warning'
   trigger:
@@ -39,12 +34,6 @@
       - tue
       - thu
   action:
-    - service: persistent_notification.create
-      data_template:
-        notification_id: 'travel_time'
-        title: 'Travel Time Warning'
-        message: > 
-             Warning, it is going to take {{ trigger.to_state.state }} minutes to get home from DTI
     - service: notify.brad_pb
       data_template:
         title: 'Travel Time Warning'
