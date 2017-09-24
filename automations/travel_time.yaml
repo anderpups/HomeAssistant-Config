@@ -1,9 +1,17 @@
-- id: travel_time
-  alias: 'Travel Time Warning'
+- id: to_dti_warning
+  alias: 'To DTI Travel Time Warning'
   trigger:
     - platform: numeric_state
       entity_id: sensor.time_to_dti
-      above: 60
+      above: 62
+  condition:
+    condition: time
+    after: '05:45:00'
+    before: '07:00:00'
+    weekday:
+      - mon
+      - tue
+      - thu
   action:
     - service: persistent_notification.create
       data_template:
@@ -11,9 +19,34 @@
         title: 'Travel Time Warning'
         message: > 
              Warning, it is going to take {{ trigger.to_state.state }} minutes to get to DTI
-
     - service: notify.brad_pb
       data_template:
         title: 'Travel Time Warning'
         message: >
              Warning, it is going to take {{ trigger.to_state.state }} minutes to get to DTI
+- id: from_dti_warning
+  alias: 'From DTI Travel Time Warning'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.time_to_home_brad
+      above: 62
+  condition:
+    condition: time
+    after: '14:00:00'
+    before: '16:00:00'
+    weekday:
+      - mon
+      - tue
+      - thu
+  action:
+    - service: persistent_notification.create
+      data_template:
+        notification_id: 'travel_time'
+        title: 'Travel Time Warning'
+        message: > 
+             Warning, it is going to take {{ trigger.to_state.state }} minutes to get home from DTI
+    - service: notify.brad_pb
+      data_template:
+        title: 'Travel Time Warning'
+        message: >
+             Warning, it is going to take {{ trigger.to_state.state }} minutes to get home from DTI

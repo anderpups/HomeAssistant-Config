@@ -118,10 +118,10 @@ sensor.pihole_domains_blocked:
 
 ##### System Monitor#########
 sensor.rpi_uptime:
-  friendly_name: "Raspberry Pi Uptime"
+  friendly_name: "RPi Uptime"
   icon: mdi:timelapse
 sensor.hass_uptime:
-  friendly_name: "Home Assistant Uptime"
+  friendly_name: "HASS Uptime"
   icon: mdi:timelapse
 
 ##########Groups###############
