@@ -123,6 +123,14 @@ sensor.rpi_uptime:
 sensor.hass_uptime:
   friendly_name: "HASS Uptime"
   icon: mdi:timelapse
+sensor.master_pc_cpu_load:
+  friendly_name: "CPU Use"
+sensor.master_pc_disk_use:
+  friendly_name: "Disk Use C:\\"
+sensor.master_pc_ram_use:
+  friendly_name: "RAM Use"
+sensor.master_pc_swap_use:
+  friendly_name: "Swap Use"
 
 ##########Groups###############
 group.current_conditions:
@@ -147,5 +155,11 @@ group.mail:
   friendly_name: " "
 group.pihole:
   friendly_name: "Pi-Hole Ad Block"
+group.master_pc:
+  friendly_name: "Master PC"
+group.check_ride_prices:
+  friendly_name: "Check Ride Prices"
 
 
+script.check_ride_prices:
+  friendly_name: "Check Ride Prices"

@@ -1,0 +1,11 @@
+- platform: template
+  sensors:
+    media_players_active:
+      friendly_name: 'Active Media Players'
+      value_template: >
+        {{ states.media_player
+         | rejectattr('state', 'equalto', 'off')
+         | rejectattr('state', 'equalto', 'idle')
+         | map(attribute ='entity_id')
+         | join(', ')
+        }}

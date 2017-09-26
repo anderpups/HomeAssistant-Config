@@ -1,9 +1,0 @@
-#####SPEED TESTS#############
-- platform: speedtest
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-- platform: fastdotcom
-#############################
-

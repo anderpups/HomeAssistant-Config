@@ -7,6 +7,7 @@
 - platform: fastdotcom
 #############################
 
+#### RPI #####
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
@@ -15,10 +16,6 @@
     - type: swap_use_percent
     - type: processor_use
     - type: load_15m
-    - type: network_in
-      arg: eth0
-    - type: network_out
-      arg: eth0
 
 - platform: command_line
   name: RPI CPU Temp
@@ -37,10 +34,16 @@
 - platform: cpuspeed
 
 - platform: version
+  name: HASS Current Version
 
 - platform: pi_hole
   host: !secret pihole_host
   ssl: true
+  monitored_conditions:
+    - ads_blocked_today
+    - ads_percentage_today
+    - dns_queries_today
+    - unique_domains
 
 - platform: cert_expiry
   host: !secret hass_url
@@ -49,4 +52,25 @@
 - platform: cert_expiry
   host: !secret pihole_host
   name: cert_expire_pihole
+######################################################
 
+### Glances ###############
+- platform: glances
+  host: 192.168.1.12
+  name: master_pc
+  resources:
+    - 'disk_use_percent'
+    - 'memory_use_percent'
+    - 'swap_use_percent'
+    - 'processor_load'
+#############################
+
+- platform: rest
+  name: HASS Latest Version
+  scan_interval: 43200
+  resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
+  value_template: '{{ value_json.tag_name }}'
+  headers:
+    Accept: application/vnd.github.v3+json
+    Content-Type: application/json
+    User-Agent: REST Sensor

@@ -1,0 +1,6 @@
+check_ride_prices:
+  sequence:
+    - service: group.set_visibility
+      entity_id: group.check_ride_prices
+      data:
+       visible: False

@@ -41,6 +41,7 @@ network:
   entities:
   - group.speed_tests
   - group.rasp_pi
+  - group.master_pc
   - group.pihole
 
 media:
@@ -54,6 +55,12 @@ media:
   - switch.stereo_power
   - media_player.television
 
+rides:
+  view: yes
+  name: Rides
+  icon: mdi:taxi
+  entities:
+  - group.check_ride_prices
 ################### GROUPS ########################
 
 Commute: sensor.time_to_dti, sensor.time_to_ai_dupont
@@ -66,13 +73,18 @@ speed_tests: sensor.fastcom_download, sensor.speedtest_download,sensor.speedtest
 
 Nest: binary_sensor.basement_nest_protect_online, sensor.basement_nest_protect_smoke_status, sensor.basement_nest_protect_co_status, sensor.basement_nest_protect_battery_health
 
-rasp_pi: sensor.cpu_temp, sensor.cpu_use, sensor.ram_use, sensor.swap_use, sensor.disk_use_, sensor.average_load_15m, sensor.received_eth0, sensor.sent_eth0, sensor.hass_uptime, sensor.rpi_uptime
+rasp_pi: sensor.cpu_temp, sensor.cpu_use, sensor.ram_use, sensor.swap_use, sensor.disk_use_, sensor.average_load_15m, sensor.hass_uptime, sensor.rpi_uptime
+
+master_pc: sensor.master_pc_cpu_load, sensor.master_pc_disk_use, sensor.master_pc_ram_use, sensor.master_pc_swap_use
 
 mail: sensor.usps_mail, camera.usps_mail
 
 packages: sensor.usps_delivered, sensor.fedex, sensor.ups_delivered
 
 pihole: sensor.pihole_ads_blocked_today, sensor.pihole_ads_percentage_blocked_today, sensor.pihole_dns_queries_cached, sensor.pihole_dns_queries_forwarded, sensor.pihole_dns_queries_today, sensor.pihole_dns_unique_clients, sensor.pihole_dns_unique_domains, sensor.pihole_domains_blocked
+
+check_ride_prices: input_select.ride_price_start, input_select.ride_price_end, input_select.ride_price_type, script.check_ride_prices
+
 
 ######### Weather Page################
 

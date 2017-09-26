@@ -2,15 +2,15 @@
 - id: homeassistant_update_notification
   alias: 'Update Available Notifications'
   trigger:
-    platform: state
-    entity_id: updater.updater
+    platform: template
+    value_template: "{% if states.sensor.hass_latest_version.state > states.sensor.hass_current_version.state %} true {% endif %}" 
   action:
     - service: persistent_notification.create
       data_template:
         notification_id: 'update'
         title: 'Update Notification'
-        message: "Version {{ states.updater.updater.state }} of Home Assistant is available. The current version is {{ states.sensor.current_version.state }}"        
+        message: "Version {{ states.sensor.hass_latest_version.state }} of Home Assistant is available. The current version is {{ states.sensor.hass_current_version.state }}"        
     - service: notify.brad_pb
       data_template:
         title: 'New HA Release'
-        message: "Version {{ states.updater.updater.state }} of Home Assistant is available. The current version is {{ states.sensor.current_version.state }}"        
+        message: "Version {{ states.sensor.hass_latest_version.state }} of Home Assistant is available. The current version is {{ states.sensor.hass_current_version.state }}"        

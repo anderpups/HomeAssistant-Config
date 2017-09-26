@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: !secret latitude
-  longitude: !secret longitude
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 106
   # metric for Metric, imperial for Imperial
@@ -31,9 +31,6 @@ http:
   # Uncomment this if you are using SSL or running in Docker etc
   base_url: !secret hass_url 
 
-# Checks for available updates
-updater:
-
 recorder:
   purge_days: 60
   db_url: mysql://127.0.0.1/hass
@@ -57,6 +54,27 @@ recorder:
       - camera.delaware_radar
       - camera.northeast_radar
       - camera.us_radar
+      - sensor.lyft_to_mike_heather_lyft_plus_price
+      - sensor.lyft_to_mike_heather_lyft_plus_time
+      - sensor.lyft_to_mike_heather_lyft_price
+      - sensor.lyft_to_mike_heather_lyft_time
+      - sensor.lyft_to_riverfront_lyft_plus_price
+      - sensor.lyft_to_riverfront_lyft_plus_time
+      - sensor.lyft_to_riverfront_lyft_price
+      - sensor.lyft_to_riverfront_lyft_time
+      - sensor.uber_to_mike_heather_ubersuv_price
+      - sensor.uber_to_mike_heather_ubersuv_time
+      - sensor.uber_to_mike_heather_uberx_price
+      - sensor.uber_to_mike_heather_uberx_time
+      - sensor.uber_to_mike_heather_uberxl_price
+      - sensor.uber_to_mike_heather_uberxl_time
+      - sensor.uber_to_riverfront_ubersuv_price 
+      - sensor.uber_to_riverfront_ubersuv_time
+      - sensor.uber_to_riverfront_uberx_price
+      - sensor.uber_to_riverfront_uberx_time
+      - sensor.uber_to_riverfront_uberxl_price
+      - sensor.uber_to_riverfront_uberxl_time
+      - sensor.stereo_last_changed
 
 
 # Allows you to issue voice commands from the frontend in enabled browsers
@@ -73,6 +91,9 @@ logbook:
       - sensor.dark_sky_minutely_summary
       - sensor.dark_sky_hourly_summary
       - sensor.dark_sky_daily_summary
+      - sensor.us_air_pollution_level
+      - sensor.us_air_quality_index
+      - sensor.us_main_pollutant
 
 logger:
   default: warn
@@ -115,5 +136,7 @@ camera: !include cameras.yaml
 notify: !include notifiers.yaml
 
 media_player: !include media_players.yaml
+
+input_select: !include input_select.yaml
 
 #panel_iframe: !include iframe_panels.yaml

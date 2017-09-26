@@ -1,0 +1,27 @@
+### RIDES ####
+ride_price_start:
+  name: Start
+  options:
+  - Home
+  - Riverfront
+  - Mike and Heathers
+  initial: Home
+  icon: mdi:ray-start-arrow
+
+ride_price_end:
+  name: End
+  options:
+  - Home
+  - Riverfront
+  - Mike and Heathers
+  initial: Riverfront
+  icon: mdi:ray-end-arrow
+
+ride_price_type:
+  name: Type
+  options:
+  - 4 People
+  - 6 People
+  - SUV
+  initial: 4 People
+  icon: mdi:account-multiple
