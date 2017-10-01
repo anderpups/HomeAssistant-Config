@@ -33,7 +33,7 @@ http:
 
 recorder:
   purge_days: 60
-  db_url: mysql://127.0.0.1/hass
+  db_url: !secret mysql_url
   exclude:
     domains:
       - automation

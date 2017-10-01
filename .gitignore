@@ -8,4 +8,5 @@ home-assistant_v2.db
 nest.conf
 upsmychoice_cookies.pickle
 usps_cookies.pickle
+.google.token
 fedexdeliverymanager_cookies.pickle
