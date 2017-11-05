@@ -32,7 +32,8 @@ http:
   base_url: !secret hass_url 
 
 recorder:
-  purge_days: 60
+  purge_interval: 60
+  purge_keep_days: 60
   db_url: !secret mysql_url
   exclude:
     domains:
@@ -114,10 +115,6 @@ ifttt:
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
-
-usps:
-  username: !secret usps_username
-  password: !secret usps_password
 
 wemo:
   static:

@@ -1,3 +1,6 @@
+#- platform: usps
+#  username: !secret usps_username
+#  password: !secret usps_password
 - platform: ups
   username: !secret ups_username
   password: !secret ups_password
@@ -16,13 +19,13 @@
                      {% else %}
                         0
                      {% endif %}
-- platform: template
-  sensors:
-    usps_delivered:
-      friendly_name: 'USPS'
-      value_template: >
-                     {% if states.sensor.usps_packages.attributes.delivered is not defined %}
-                        0
-                     {% else %}
-                       {{ states.sensor.usps_packages.attributes.delivered }}
-                     {% endif %}
+                     #- platform: template
+                     #sensors:
+                     #usps_delivered:
+                     #friendly_name: 'USPS'
+                     #value_template: >
+                     #{% if states.sensor.usps_packages.attributes.delivered is not defined %}
+                     #   0
+                     #{% else %}
+                     #  {{ states.sensor.usps_packages.attributes.delivered }}
+                     #{% endif %}

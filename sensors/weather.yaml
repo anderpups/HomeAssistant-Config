@@ -27,6 +27,8 @@
     - relative_humidity
     - precip_today_in
     - temp_f
+    - pressure_in
+    - pressure_trend
 
 - platform: moon
 

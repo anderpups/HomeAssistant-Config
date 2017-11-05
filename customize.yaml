@@ -20,7 +20,7 @@ sensor.pws_relative_humidity:
  friendly_name: "Relative Humidity"
  icon: mdi:weather-fog
 
-####Weather DarkSky##########
+ ####Weather DarkSky##########
 sensor.dark_sky_daily_high_apparent_temperature:
   friendly_name: "Feels Like High"
 sensor.dark_sky_daily_high_temperature:
@@ -83,20 +83,20 @@ sensor.time_to_ai_dupont:
 ######Mail########
 sensor.usps_mail:
   friendly_name: "Mailbox"
-  entity_picture: "http://home.stonerson.com/pics/usps.png"
+  entity_picture: "https://home.stonerson.com/pics/usps.png"
 camera.usps_mail:
   friendly_name: "Mailbox "
 
 ######Packages######
 sensor.ups_delivered:
   friendly_name: "UPS"
-  entity_picture: "http://home.stonerson.com/pics/ups.png"
+  entity_picture: "https://home.stonerson.com/pics/ups.png"
 sensor.fedex:
   friendly_name: "FedEx"
-  entity_picture: "http://home.stonerson.com/pics/fedex.png"
+  entity_picture: "https://home.stonerson.com/pics/fedex.png"
 sensor.usps_delivered:
   friendly_name: "USPS"
-  entity_picture: "http://home.stonerson.com/pics/usps.png"
+  entity_picture: "https://home.stonerson.com/pics/usps.png"
 
 #####Pi-Hole#####
 sensor.pihole_ads_blocked_today:
@@ -120,7 +120,7 @@ sensor.pihole_domains_blocked:
 sensor.rpi_uptime:
   friendly_name: "RPi Uptime"
   icon: mdi:timelapse
-sensor.hass_uptime:
+sensor.uptime:
   friendly_name: "HASS Uptime"
   icon: mdi:timelapse
 sensor.master_pc_cpu_load:
@@ -161,5 +161,5 @@ group.check_ride_prices:
   friendly_name: "Check Ride Prices"
 
 
-script.check_ride_prices:
-  friendly_name: "Check Ride Prices"
+  #script.check_ride_prices:
+  #friendly_name: "Check Ride Prices"

@@ -27,10 +27,6 @@
   name: RPI Uptime
   command: "uptime -p | sed 's/^..//g'"
 
-- platform: command_line
-  name: HASS Uptime
-  command: /home/homeassistant/.homeassistant/scripts/hass_uptime.sh
-
 - platform: cpuspeed
 
 - platform: version
@@ -55,15 +51,20 @@
 ######################################################
 
 ### Glances ###############
-- platform: glances
-  host: 192.168.1.12
-  name: master_pc
-  resources:
-    - 'disk_use_percent'
-    - 'memory_use_percent'
-    - 'swap_use_percent'
-    - 'processor_load'
+#- platform: glances
+#  host: 192.168.1.12
+#  name: master_pc
+#  resources:
+#    - 'disk_use_percent'
+#    - 'memory_use_percent'
+#    - 'swap_use_percent'
+#    - 'processor_load'
 #############################
+- platform: uptime
+
+- platform: whois
+  domain: stonerson.com  
+  name: stonerson.com
 
 - platform: rest
   name: HASS Latest Version
