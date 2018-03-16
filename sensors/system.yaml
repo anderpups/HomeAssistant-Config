@@ -48,18 +48,7 @@
 - platform: cert_expiry
   host: !secret pihole_host
   name: cert_expire_pihole
-######################################################
 
-### Glances ###############
-#- platform: glances
-#  host: 192.168.1.12
-#  name: master_pc
-#  resources:
-#    - 'disk_use_percent'
-#    - 'memory_use_percent'
-#    - 'swap_use_percent'
-#    - 'processor_load'
-#############################
 - platform: uptime
 
 - platform: whois
@@ -75,3 +64,4 @@
     Accept: application/vnd.github.v3+json
     Content-Type: application/json
     User-Agent: REST Sensor
+

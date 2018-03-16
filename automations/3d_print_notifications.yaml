@@ -1,0 +1,13 @@
+- id: 'finished_print'
+  alias: '3D Print is complete'
+  trigger:
+    - platform: state
+      entity_id: sensor.modt
+      to: STATE_JOB_COMPLETE
+  action:
+    - service: notify.brad_pb
+      data:
+        title: '3D Print is complete'
+        message: '3d print is complete!'
+        data:
+          file_url: http://192.168.0.216:8888/out.jpg

@@ -1,0 +1,36 @@
+sensor.us_main_pollutant:
+  name:
+  platform: airvisual
+  unique_id: 39.761644,-75.675183_main_pollutant
+sensor.us_air_pollution_level:
+  name:
+  platform: airvisual
+  unique_id: 39.761644,-75.675183_pollution_level
+sensor.us_air_quality_index:
+  name:
+  platform: airvisual
+  unique_id: 39.761644,-75.675183_aqi
+switch.stereo_power:
+  name:
+  platform: wemo
+  unique_id: 221422K0101310
+media_player.stereo:
+  name:
+  platform: cast
+  unique_id: a9c3addd-75cf-d4d2-8871-907cc0fe313b
+media_player.home_group:
+  name:
+  platform: cast
+  unique_id: 0dcd99af-95fe-48b3-bccc-a34cf3d5ccd1
+media_player.television:
+  name:
+  platform: cast
+  unique_id: 38ec0e11-082b-2a2b-0fe7-13e9e4269d2e
+media_player.bedroom:
+  name:
+  platform: cast
+  unique_id: 48d5581c-3818-2373-c29d-9cb0f4364240
+media_player.sony_portable:
+  name:
+  platform: cast
+  unique_id: 737ad66f-4f7a-0d29-8b55-17e904ce58f2

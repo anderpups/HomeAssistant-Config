@@ -97,7 +97,7 @@ logbook:
       - sensor.us_main_pollutant
 
 logger:
-  default: warn
+  default: error
 
 # Track the sun
 sun:
@@ -135,5 +135,3 @@ notify: !include notifiers.yaml
 media_player: !include media_players.yaml
 
 input_select: !include input_select.yaml
-
-#panel_iframe: !include iframe_panels.yaml

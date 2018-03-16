@@ -45,6 +45,13 @@ network:
   - group.pihole
   - group.web
 
+3dprinting:
+  view: yes
+  name: 3D Printing
+  icon: mdi:printer-3d
+  entities:
+  - group.modt
+
 media:
   view: yes
   name: Media
@@ -88,6 +95,7 @@ Web: sensor.stonersoncom, sensor.cert_expire_hass, sensor.cert_expire_pihole
 
 #check_ride_prices: input_select.ride_price_start, input_select.ride_price_end, input_select.ride_price_type, script.check_ride_prices
 
+MOD-T: sensor.modt, sensor.modt_progress, sensor.modt_elapsed_time, sensor.modt_extruder_temp, sensor.modt_extruder_target_temp, camera.modt
 
 ######### Weather Page################
 

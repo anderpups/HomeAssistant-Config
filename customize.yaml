@@ -131,7 +131,31 @@ sensor.master_pc_ram_use:
   friendly_name: "RAM Use"
 sensor.master_pc_swap_use:
   friendly_name: "Swap Use"
+sensor.hass_current_version:
+  icon: mdi:information-outline
+  friendly_name: "Current HASS Version"
 
+##### Web ######
+sensor.stonersoncom:
+  friendly_name: "Domain Registration"
+sensor.cert_expire_hass:
+  friendly_name: "Hass Cert Expiration"
+sensor.cert_expire_pihole:
+  friendly_name: "PiHole Cert Expiration"
+ 
+#### 3D Printer #####
+sensor.modt:
+  friendly_name: "MOD-T Status"
+  icon: mdi:printer-3d
+sensor.modt_extruder_target_temp:
+  icon: mdi:thermometer-lines
+sensor.modt_extruder_temp: 
+  icon: mdi:thermometer
+sensor.modt_progress:
+  icon: mdi:timer-sand
+sensor.modt_elapsed_time:
+  icon: mdi:timer
+  
 ##########Groups###############
 group.current_conditions:
   friendly_name: "Current Conditions"
@@ -161,5 +185,3 @@ group.check_ride_prices:
   friendly_name: "Check Ride Prices"
 
 
-  #script.check_ride_prices:
-  #friendly_name: "Check Ride Prices"
